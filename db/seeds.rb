@@ -19,4 +19,14 @@ if Rails.env.development?
   Book.find_or_create_by(title: "Photography") do |book|
     book.description = "The ins and outs of photography, to the point"
   end
+
+  demo_book = Book.find_or_create_by(title: "Demo Book")
+  (1..10).each do |i|
+    chapter = demo_book.chapters.find_or_create_by(title: "Chapter #{i}")
+    (1..5).each do |j|
+      section = chapter.sections.find_or_create_by(title: "Section #{i}.#{j}")
+      section.content = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      section.save!
+    end
+  end
 end

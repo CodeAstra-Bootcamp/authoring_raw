@@ -1,0 +1,14 @@
+<h1><%= @book.title %></h1>
+<% chapter_count = 1 %>
+<% @chapters.each do |chapter| %>
+  <h2><%= chapter_count %>. <%= chapter.title %></h2>
+  <% section_count = 1 %>
+  <% chapter.sections.each do |section| %>
+    <h3><%= "#{chapter_count}.#{section_count}." %><%= section.title %></h3>
+    <p>
+      <%= section.content %>
+    </p>
+    <% section_count += 1 %>
+  <% end %>
+  <% chapter_count += 1 %>
+<% end %>
