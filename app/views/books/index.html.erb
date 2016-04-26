@@ -2,7 +2,6 @@
 <h1>Pick a book to contribute</h1>
 <% Book.all.each do |book| %>
   <div class="well">
-    <%= link_to "Delete", book_path(book), method: :delete, class: "btn btn-danger btn-sm pull-right", data: {confirm: "Are you sure you want to delete the book?"} %>
     <h3><%= link_to book.title, book_path(book) %></h3>
     <p>
       <%= book.description %>

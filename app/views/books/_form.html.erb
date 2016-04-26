@@ -1,0 +1,5 @@
+<%= simple_form_for @book do |f| %>
+  <%= f.input :title, placeholder: "Eg. how to play guitar" %>
+  <%= f.input :description %>
+  <%= f.submit "Add Book", class: "btn btn-primary btn-lg" %>
+<% end %>

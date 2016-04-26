@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :fetch_book, only: [:show, :destroy]
+  before_action :fetch_book, only: [:show, :destroy, :edit, :update]
 
   def index
   end
@@ -14,6 +14,17 @@ class BooksController < ApplicationController
       redirect_to book_path(@book)
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @book.update_attributes(book_params)
+      redirect_to book_path(@book)
+    else
+      render :edit
     end
   end
 
